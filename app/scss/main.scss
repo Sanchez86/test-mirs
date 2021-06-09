@@ -1,0 +1,46 @@
+@import "vars";
+@import "fonts";
+@import "reset";
+@import "basket";
+@import "components/card";
+
+body {
+  font-size: $default-font-size;
+  font-family: $default-font;
+  color: $default-color;
+  padding: 40px 24px;
+
+  @media all and (max-width: 768px) {
+    padding: 0;
+  }
+}
+
+.d-flex{
+  display: flex;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+.wrapper{
+  max-width: 1390px;
+  margin: 0 auto;
+}
+
+h1{
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 42.19px;
+}
+
+.product{
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media all and (max-width: 768px) {
+    padding: 40px 24px;
+  }
+}
+

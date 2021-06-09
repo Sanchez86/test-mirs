@@ -1,0 +1,141 @@
+@import "../vars";
+
+.card{
+  width: 20%;
+  height: 358px;
+  position: relative;
+
+  @media all and (max-width: 768px) {
+    width: 33.3%;
+  }
+
+  @media all and (max-width: 360px) {
+    width: 100%;
+  }
+
+  .card__decor{
+    display: none;
+  }
+
+  &-border .card__decor{
+    display: block;
+  }
+
+  &__decor{
+
+    &__top-bottom{
+      &:before{
+        content: "";
+        display: block;
+        background-color:  $gray-light;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      &:after{
+        content: "";
+        display: block;
+        background-color:  $gray-light;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+      }
+    }
+
+    &__left-right{
+      &:before{
+        content: "";
+        display: block;
+        background-color:  $gray-light;
+        height: 100%;
+        width: 1px;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      &:after{
+        content: "";
+        display: block;
+        background-color:  $gray-light;
+        height: 100%;
+        width: 1px;
+        position: absolute;
+        right: -1px;
+        top: 0;
+      }
+    }
+
+  }
+
+
+  &__img{
+    padding: 16px 35px;
+    height: 192px;
+    display: block;
+
+    img{
+      width: 100%;
+      height: 208px;
+      object-fit: cover;
+    }
+  }
+
+  &__description{
+    padding: 16px;
+  }
+
+  &__category{
+    font-size: 12px;
+    line-height: 14px;
+    height: 14px;
+    overflow: hidden;
+    color: $gray;
+  }
+
+  &__title{
+    font-size: 12px;
+    line-height: 14px;
+    height: 28px;
+    overflow: hidden;
+    color: $gray;
+    margin-top: 8px;
+  }
+
+  &__bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 23px;
+    margin-bottom: 32px;
+  }
+
+  &__price{
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  &__icon{
+    width: 18px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAxOCAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEwLjY3ODQgMEMxMS44ODg1IDAgMTIuODgxNyAwLjk0MzQwOSAxMi45NTkzIDIuMTMyNjFMMTIuOTY0MSAyLjI4MjQ5TDEyLjk2MzggNC4wMjI1OUwxNS4yMjkzIDQuMDIzNDdDMTUuNzQzMSA0LjAyMzQ3IDE2LjE4MzEgNC4zNTY1NCAxNi4zMzEyIDQuODI3ODhMMTYuMzYwMSA0LjkzOTAyTDE2LjM3OCA1LjA1NDU0TDE3Ljk5NTMgMjAuNjk2M0wxOCAyMC44MjQ1QzE3Ljk5NDMgMjEuMTEzMyAxNy44ODM5IDIxLjM5MTYgMTcuNjg4NCAyMS42MDY3QzE3LjQ4NzkgMjEuODI1OCAxNy4yMTQ1IDIxLjk2MjYgMTYuOTIyNCAyMS45OTM0TDE2Ljc5NjIgMjJIMS4xODA5MUMwLjg0ODQzMiAyMiAwLjUzMDA4NyAyMS44NTk3IDAuMzA2ODIyIDIxLjYxNTFDMC4xMTAwMzIgMjEuNDAwMyAwLjAwMTQ4MjAzIDIxLjExOTYgMCAyMC44MzA2TDAuMDA1OTc0NjcgMjAuNzA2NEwxLjYwMzY1IDUuMDYzNjRDMS42NjAzNCA0LjUxMDQ2IDIuMDk4MjMgNC4wODM3NyAyLjY0MjY4IDQuMDI5MzRMMi43NjA4OCA0LjAyMzQ3TDUuMDM1NDggNC4wMjI1OUw1LjAzNTkgMi4yODI0OUM1LjAzNTkgMS4xMjQzOCA1LjkwMzM4IDAuMTY1MjkzIDcuMDIzNTMgMC4wMTkyNTA4TDcuMTcxMDIgMC4wMDQ4NjMxOEw3LjMyMTA4IDBIMTAuNjc4NFpNNS4wMzU0OCA1LjIzNDdIMi44MDUxMUwxLjIxNzI4IDIwLjc4NzJIMTYuNzgzOEwxNS4xNzUyIDUuMjM0N0gxMi45NjM4VjYuNTI4OTNMMTMuMDA1NSA2LjU1MTA1QzEzLjM1MzUgNi43NTUzNSAxMy41ODk1IDcuMTEzOTkgMTMuNjI5NSA3LjUyM0wxMy42MzU2IDcuNjQ3MTFDMTMuNjM1NiA4LjM1MTkxIDEzLjA2MyA4LjkyMzc0IDEyLjM1NzMgOC45MjM3NEMxMS42NTE2IDguOTIzNzQgMTEuMDc5IDguMzUxOTEgMTEuMDc5IDcuNjQ3MTFDMTEuMDc5IDcuMTg3MjUgMTEuMzI2MyA2Ljc3NTc0IDExLjcwOTEgNi41NTEwM0wxMS43NTAxIDYuNTI4OTNWNS4yMzQ3SDYuMjQ5MThWNi41Mjg5M0w2LjI5MDk0IDYuNTUxMDVDNi42Mzg5NCA2Ljc1NTM1IDYuODc0OTUgNy4xMTM5OSA2LjkxNDk5IDcuNTIzTDYuOTIxMDQgNy42NDcxMUM2LjkyMTA0IDguMzUxOTEgNi4zNDg0NSA4LjkyMzc0IDUuNjQyNzQgOC45MjM3NEM0LjkzNzAzIDguOTIzNzQgNC4zNjQ0NCA4LjM1MTkxIDQuMzY0NDQgNy42NDcxMUM0LjM2NDQ0IDcuMTg3MjUgNC42MTE3NSA2Ljc3NTc0IDQuOTk0NTYgNi41NTEwM0w1LjAzNTQ4IDYuNTI4OTNWNS4yMzQ3Wk0xMC42Nzg0IDEuMjEyMUwxMC43ODc4IDEuMjE3NjRDMTEuMzI3NSAxLjI3MjU4IDExLjc1MDUgMS43Mjk0MSAxMS43NTA1IDIuMjgyNDlMMTEuNzUwMSA0LjAyMjU5SDYuMjQ5MThMNi4yNDk1OCAyLjI4MjQ5TDYuMjU1MTMgMi4xNzMyNEM2LjMxMDEyIDEuNjM0MzMgNi43Njc0MiAxLjIxMjEgNy4zMjEwOCAxLjIxMjFIMTAuNjc4NFoiIGZpbGw9IiM0NDQ0NDQiLz48L3N2Zz4=);
+  }
+
+  &__link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: .5s;
+    z-index: 1;
+
+    &:hover{
+      box-shadow: 0 1px 13px 2px #00000057;
+    }
+  }
+}

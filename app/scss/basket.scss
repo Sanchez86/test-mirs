@@ -1,0 +1,66 @@
+@import "vars";
+
+.basket{
+  background: #EEEEEE;
+  padding: 40px 119px;
+
+  @media all and (max-width: 768px) {
+    padding: 40px 24px;
+  }
+
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  &__clear{
+    font-size: 16px;
+    line-height: 19px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+}
+
+.basket-item{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid #000;
+  max-width: calc(688px - 42px); //42 this 40px padding and 2px border
+  margin: 10px auto;
+
+  @media all and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  &__title{
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    font-family: $default-font;
+  }
+
+  &__price{
+    font-size: 16px;
+    line-height: 19px;
+    font-family: $default-font;
+    margin-top: 9px;
+  }
+
+  &__delete{
+    font-size: 16px;
+    line-height: 19px;
+    height: 19px;
+    font-family: $default-font;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    @media all and (max-width: 768px) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
