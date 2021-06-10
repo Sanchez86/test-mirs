@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="basket-item">
                         <div class="basket-item__left">
                             <div class="basket-item__title">${item.title}</div>
-                            <div class="basket-item__price">${item.price} грн</div>
+                            <div class="basket-item__price">${item.price} грн * ${item.quantity} = ${item.price * item.quantity} грн</div>
                         </div>
                         <button class="basket-item__delete" data-id="${item.id}">Удалить</button>
                     </div>
@@ -86,6 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const newElem = event.target.dataset;
 
+                if(newElem.quantity){
+                    newElem.quantity++;
+                }else{
+                    newElem.quantity = 1;
+                }
+
                 let productItem = [];
 
                 if(localStorage.getItem('cart') !== null){
@@ -94,8 +100,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     productItem = [];
                 }
 
-                productItem.push(newElem);
-                localStorage.setItem('cart', JSON.stringify(productItem));
+                const foundItemIndex = productItem.findIndex(item => item.id === newElem.id);
+                console.log('foundItemIndex', foundItemIndex);
+
+                if(foundItemIndex > -1){
+                    const items = [
+                        ...productItem.slice(0, foundItemIndex),
+                        newElem,
+                        ...productItem.slice(foundItemIndex + 1)
+                    ];
+
+                    localStorage.removeItem('cart');
+                    localStorage.setItem('cart', JSON.stringify(items));
+                }else{
+                    productItem.push(newElem);
+
+                    localStorage.removeItem('cart');
+                    localStorage.setItem('cart', JSON.stringify(productItem));
+                }
 
                 showCart();
             }
